@@ -1,0 +1,22 @@
+{
+  "name": "jaggery",
+  "version": "1.0.0",
+  "description": "Blockchain Market",
+  "main": "index.js",
+  "scripts": {
+    "compile": "node ethereum/compile.js",
+    "test": "mocha",
+    "deploy": "node ethereum/deploy.js"
+  },
+  "author": "Uladzislau Malmyha",
+  "license": "ISC",
+  "dependencies": {
+    "bignumber.js": "^9.0.0",
+    "fs-extra": "^8.1.0",
+    "ganache-cli": "^6.7.0",
+    "mocha": "^6.2.2",
+    "solc": "^0.5.12",
+    "truffle-hdwallet-provider": "^1.0.17",
+    "web3": "^1.2.2"
+  }
+}

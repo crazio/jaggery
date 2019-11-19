@@ -1,0 +1,37 @@
+{
+    "build": {
+        "target": ".",
+        "tasks": [
+            {
+                "for": "node-cf",
+                "src": "srv",
+                "options": {
+                    "model": [
+                        "srv",
+                        "db"
+                    ]
+                }
+            },
+            {
+                "for": "hana",
+                "src": "db",
+                "options": {
+                    "model": [
+                        "db",
+                        "srv"
+                    ]
+                }
+            }
+        ]
+    },
+    "requires": {
+        "[dev]": {
+            "db": {
+                "kind": "sqlite",
+                "credentials": {
+                    "database": "db/spaceflight.db"
+                }
+            }
+        }
+    }
+}
