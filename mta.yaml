@@ -1,8 +1,9 @@
 _schema-version: 2.0.0
 ID: jaggery
 version: 1.0.0
+
 modules:
-  - name: jaggery-srv
+  - name: srv
     type: nodejs
     path: srv
     parameters:
@@ -13,10 +14,10 @@ modules:
         properties:
           url: ${default-url}
     requires:
-      - name: jaggery-db-hdi-container
+      - name: db
       - name: jaggery-uaa
 
-  - name: jaggery-db
+  - name: db
     type: hdb
     path: db
     parameters:
@@ -26,16 +27,50 @@ modules:
       - name: jaggery-db-hdi-container
 
 resources:
+
+  - name: jaggery-deployer
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+      config: { sizeLimit: 5 }
+      shared: true
+
+  - name: jaggery-router
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+      shared: true
+
+  - name: jaggery-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
+      service-plan: lite
+      shared: true
+
+  - name: jaggery-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: destination
+      service-plan: lite
+      shared: true
+        
+  - name: jaggery-hdi
+    type: com.sap.xs.hdi-container
+    parameters:
+      service-plan: hdi-shared
+      service: hanatrial
+      config: { schema: JAGGERY_SCP }
+      shared: true
+    properties:
+      hdi-container-name: ${service-name}
+
   - name: jaggery-uaa
     type: org.cloudfoundry.managed-service
     parameters:
+      path: ./xs-security.json
       service-plan: application
       service: xsuaa
-      config:
-        xsappname: jaggery-${space}
-        tenant-mode: dedicated
-        
-  - name: jaggery-db-hdi-container
-    type: com.sap.xs.hdi-container
-    properties:
-      hdi-container-name: ${service-name}
+      shared: true

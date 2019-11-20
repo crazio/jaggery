@@ -1,0 +1,33 @@
+_schema-version: 2.0.0
+ID: jaggery-web
+version: 1.0.0
+
+modules:
+  - name: deployer
+    type: com.sap.html5.application-content
+    path: deployer
+    provides:
+      - name: deployer
+        public: true
+    build-parameters:
+      ignore: [".git/, ".gitignore", "mta.jar", "mta.yaml"]
+      requires: [{name: auth, artifacts: ['./*'], target-path: resources/user_create}]
+    parameters:
+      memory: 256M
+      disk-quota: 128M
+    requires:
+      - name: jaggery-deployer
+
+resources:
+
+  - name: jaggery-deployer
+    type: org.cloudfoundry.existing-service
+
+  - name: jaggery-connectivity
+    type: org.cloudfoundry.existing-service
+
+  - name: jaggery-destination
+    type: org.cloudfoundry.existing-service
+
+  - name: jaggery-uaa
+    type: org.cloudfoundry.existing-service

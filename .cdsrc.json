@@ -25,11 +25,11 @@
         ]
     },
     "requires": {
-        "[dev]": {
+        "[development]": {
             "db": {
                 "kind": "sqlite",
                 "credentials": {
-                    "database": "db/spaceflight.db"
+                    "database": "db/jaggery.db"
                 }
             }
         }
