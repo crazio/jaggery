@@ -1,0 +1,46 @@
+_schema-version: 2.0.0
+ID: router
+version: 1.0.0
+
+modules:
+  - name: router
+    type: nodejs
+    path: ./
+    build-parameters:
+      ignore: [".git/, ".gitignore", "mta.jar", "mta.yaml"]
+    parameters:
+      memory: 256M
+      disk-quota: 128M
+    requires:
+      - name: jaggery-router
+      - name: jaggery-connectivity
+      - name: jaggery-destination
+      - name: jaggery-uaa
+      - name: srv
+        group: destinations
+        properties:
+          name: srv
+          url: '~{url}'
+          forwardAuthToken: true
+
+
+resources:
+
+  - name: srv
+    type: configuration
+    parameters:
+      provider-nid: mta
+      provider-id: 'backend:srv'
+      version: '>=0.0.1'
+
+  - name: jaggery-connectivity
+    type: org.cloudfoundry.existing-service
+
+  - name: jaggery-destination
+    type: org.cloudfoundry.existing-service
+
+  - name: jaggery-uaa
+    type: org.cloudfoundry.existing-service
+
+  - name: jaggery-router
+    type: org.cloudfoundry.existing-service

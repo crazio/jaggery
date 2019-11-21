@@ -1,30 +1,6 @@
 _schema-version: 2.0.0
-ID: jaggery
+ID: resources
 version: 1.0.0
-
-modules:
-  - name: srv
-    type: nodejs
-    path: srv
-    parameters:
-      memory: 512M
-      disk-quota: 256M
-    provides:
-      - name: srv_api
-        properties:
-          url: ${default-url}
-    requires:
-      - name: db
-      - name: jaggery-uaa
-
-  - name: db
-    type: hdb
-    path: db
-    parameters:
-      memory: 256M
-      disk-quota: 256M
-    requires:
-      - name: jaggery-db-hdi-container
 
 resources:
 
@@ -33,7 +9,7 @@ resources:
     parameters:
       service-plan: app-host
       service: html5-apps-repo
-      config: { sizeLimit: 5 }
+      config: { sizeLimit: 1 }
       shared: true
 
   - name: jaggery-router

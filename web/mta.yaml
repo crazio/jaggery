@@ -1,5 +1,5 @@
 _schema-version: 2.0.0
-ID: jaggery-web
+ID: web
 version: 1.0.0
 
 modules:
@@ -11,7 +11,7 @@ modules:
         public: true
     build-parameters:
       ignore: [".git/, ".gitignore", "mta.jar", "mta.yaml"]
-      requires: [{name: auth, artifacts: ['./*'], target-path: resources/user_create}]
+      requires: [{name: customize, artifacts: ['./*'], target-path: resources/customize}]
     parameters:
       memory: 256M
       disk-quota: 128M

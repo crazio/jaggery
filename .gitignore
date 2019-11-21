@@ -4,3 +4,5 @@ build
 mta.jar
 gen
 srv/src/main
+jaggery.db
+.che

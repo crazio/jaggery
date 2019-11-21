@@ -1,0 +1,48 @@
+_schema-version: 2.0.0
+ID: backend
+version: 1.0.0
+
+modules:
+  - name: srv
+    type: nodejs
+    path: srv
+    parameters:
+      memory: 512M
+      disk-quota: 1024M
+    provides:
+      - name: srv
+        public: true
+        properties:
+          url: ${default-url}
+    requires:
+      - name: db
+      - name: jaggery-hdi
+      - name: jaggery-uaa
+      - name: jaggery-destination
+      - name: jaggery-connectivity
+
+  - name: db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: jaggery-hdi
+    provides:
+      - name: db
+        public: true
+
+resources:
+
+  - name: jaggery-connectivity
+    type: org.cloudfoundry.existing-service
+
+  - name: jaggery-destination
+    type: org.cloudfoundry.existing-service
+        
+  - name: jaggery-hdi
+    type: org.cloudfoundry.existing-service
+
+  - name: jaggery-uaa
+    type: org.cloudfoundry.existing-service
