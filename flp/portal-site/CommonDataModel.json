@@ -1,0 +1,93 @@
+{
+    "_version": "3.0.0",
+    "identification": {
+        "id": "395f0229-98f3-4641-ac83-bfee20486806-1574423811930",
+        "entityType": "bundle"
+    },
+    "payload": {
+        "catalogs": [
+            {
+                "_version": "3.0.0",
+                "identification": {
+                    "id": "defaultCatalogId",
+                    "title": "{{title}}",
+                    "entityType": "catalog",
+                    "i18n": "i18n/defaultCatalogId.properties"
+                },
+                "payload": {
+                    "viz": [
+                        {
+                            "id": "customizeApp",
+                            "vizId": "customize-action"
+                        }
+                    ]
+                }
+            }
+        ],
+        "groups": [
+            {
+                "_version": "3.0.0",
+                "identification": {
+                    "id": "defaultGroupId",
+                    "title": "{{title}}",
+                    "entityType": "group",
+                    "i18n": "i18n/defaultGroupId.properties"
+                },
+                "payload": {
+                    "viz": [
+                        {
+                            "id": "customizeTileId",
+                            "appId": "customizeApp",
+                            "vizId": "customize-action"
+                        }
+                    ]
+                }
+            }
+        ],
+        "sites": [
+            {
+                "_version": "3.0.0",
+                "identification": {
+                    "id": "1900eb45-6a61-40f9-a19e-722b2e371430-1574423811930",
+                    "entityType": "site",
+                    "title": "SAP Fiori launchpad site on Cloud Foundry",
+                    "description": "SAP Fiori launchpad site on Cloud Foundry"
+                },
+                "payload": {
+                    "config": {
+                        "ushellConfig": {
+                            "renderers": {
+                                "fiori2": {
+                                    "componentData": {
+                                        "config": {
+                                            "applications": {
+                                                "Shell-home": {}
+                                            },
+                                            "enableSearch": false,
+                                            "enablePersonalization": true,
+                                            "enableSetTheme": false,
+                                            "enableSetLanguage": false
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "groupsOrder": [
+                        "defaultGroupId"
+                    ],
+                    "sap.cloud.portal": {
+                        "config": {
+                            "theme.id": "sap_fiori_3",
+                            "theme.active": [
+                                "sap_fiori_3",
+                                "sap_belize_hcb",
+                                "sap_belize_hcw"
+                            ]
+                        }
+                    }
+                }
+            }
+        ]
+    }
+}

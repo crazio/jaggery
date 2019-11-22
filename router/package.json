@@ -1,5 +1,5 @@
 {
-    "name": "approuter",
+    "name": "router",
     "description": "Node.js based application router service for html5-apps",
     "engines": {
         "node": ">=8.5"

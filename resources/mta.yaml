@@ -50,3 +50,10 @@ resources:
       service-plan: application
       service: xsuaa
       shared: true
+
+  - name: jaggery-portal
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: standard
+      service: portal
+      shared: true

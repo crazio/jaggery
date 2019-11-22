@@ -22,8 +22,27 @@ modules:
           name: srv
           url: '~{url}'
           forwardAuthToken: true
+      - name: blockchain
+        group: destinations
+        properties:
+          name: blockchain
+          url: '~{url}'
+          forwardAuthToken: true
 
-
+  - name: flp
+    deployed-after:
+      - router
+    path: ../flp
+    parameters:
+      stack: cflinuxfs3
+      memory: 128M
+      # buildpack: 'https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.6.39/nodejs-buildpack-cflinuxfs3-v1.6.39.zip'
+    requires:
+      - name: jaggery-portal
+      - name: jaggery-uaa
+      - name: deployer
+      - name: router
+      
 resources:
 
   - name: srv
@@ -32,6 +51,23 @@ resources:
       provider-nid: mta
       provider-id: 'backend:srv'
       version: '>=0.0.1'
+    
+  - name: blockchain
+    type: configuration
+    parameters:
+      provider-nid: mta
+      provider-id: 'backend:blockchain'
+      version: '>=0.0.1'
+
+  - name: deployer
+    type: configuration
+    parameters:
+      provider-nid: mta
+      provider-id: 'web:deployer'
+      version: '>=0.0.1'
+
+  - name: jaggery-portal
+    type: org.cloudfoundry.existing-service
 
   - name: jaggery-connectivity
     type: org.cloudfoundry.existing-service

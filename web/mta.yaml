@@ -11,12 +11,30 @@ modules:
         public: true
     build-parameters:
       ignore: [".git/, ".gitignore", "mta.jar", "mta.yaml"]
-      requires: [{name: customize, artifacts: ['./*'], target-path: resources/customize}]
+      requires: 
+        - name: customize
+          artifacts: 
+            - './*' 
+          target-path: resources/customize
     parameters:
       memory: 256M
       disk-quota: 128M
     requires:
       - name: jaggery-deployer
+
+  - name: customize
+    type: html5
+    path: apps/customize
+    build-parameters:
+      ignore: [".git/", ".gitignore", "mta.jar", "mta.yaml"]
+      builder: grunt
+    parameters:
+      disk-quota: 256M
+      memory: 128M
+    requires:
+      - name: jaggery-uaa
+      - name: jaggery-destination
+      - name: jaggery-connectivity
 
 resources:
 

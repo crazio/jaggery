@@ -1,0 +1,31 @@
+{
+    "xsappname": "jaggery",
+    "tenant-mode": "dedicated",
+    "description": "Security profile of called application",
+    "scopes": [
+      {
+        "name": "uaa.user",
+        "description": "UAA"
+      },
+      {
+        "name": "$XSAPPNAME.consulting",
+        "description": "General consulting actions"
+      }
+    ],
+    "role-templates": [
+      {
+        "name": "Token_Exchange",
+        "description": "UAA",
+        "scope-references": [
+          "uaa.user"
+        ]
+      },
+      {
+        "name": "Consultant",
+        "description": "Configure settings and business flow",
+        "scope-references": [
+          "$XSAPPNAME.consulting"
+        ]
+      }
+    ]
+  }
