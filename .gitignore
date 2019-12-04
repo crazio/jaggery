@@ -6,3 +6,5 @@ gen
 srv/src/main
 jaggery.db
 .che
+.env
+static_server

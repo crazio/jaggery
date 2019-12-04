@@ -6,7 +6,6 @@
   "license": "ISC",
   "dependencies": {
     "@sap/cds": "^3.18.4",
-    "express": "^4.17.1",
     "hdb": "^0.17.1"
   },
   "engines": {
@@ -28,7 +27,10 @@
     "requires": {
       "db": {
         "kind": "sqlite",
-        "model": ["db", "srv"],
+        "model": [
+          "db",
+          "srv"
+        ],
         "credentials": {
           "database": "db/jaggery.db"
         }

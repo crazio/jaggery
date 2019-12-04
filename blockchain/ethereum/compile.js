@@ -3,6 +3,7 @@ const solc = require("solc");
 const fs = require("fs-extra");
 
 const buildPath = path.resolve(__dirname, "build");
+const serverPath = path.resolve(__dirname, "..", "..", "backend", "blockchain", "contracs");
 const contractsPath = path.resolve(__dirname, "contracts");
 
 const jaggeryPath = path.resolve(contractsPath, "Jaggery.sol");
@@ -19,6 +20,9 @@ const resolveImports = (importPath) => {
 
 fs.removeSync(buildPath);
 fs.ensureDirSync(buildPath);
+
+fs.removeSync(serverPath);
+fs.ensureDirSync(serverPath);
 
 const compileInput = {
     language: "Solidity",
@@ -44,6 +48,10 @@ contracts.forEach((contract) => {
     const name = Object.keys(contract)[0];
     fs.outputJSONSync(
         path.resolve(buildPath, name + ".json"),
+        contract[name]
+    );
+    fs.outputJSONSync(
+        path.resolve(serverPath, name + ".json"),
         contract[name]
     );
 });
