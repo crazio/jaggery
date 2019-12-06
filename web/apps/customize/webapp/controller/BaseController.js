@@ -3,9 +3,11 @@ sap.ui.define([
 ], function (Controller) {
     "use strict";
 
-    return Controller.extend("customize.controller.Base", {
-        getOwnerModel: function (sModel) {
+    return Controller.extend("customize.controller.BaseController", {
+    	
+    	getOwnerModel: function (sModel) {
             return this.getOwnerComponent().getModel(sModel);
         }
+    
     });
 });

@@ -1,12 +1,12 @@
 sap.ui.define([
-    "customize/controller/Base"
+    "customize/controller/BaseController"
 ], function (BaseController) {
     "use strict";
 
     return BaseController.extend("customize.controller.Main", {
 
         onInit: function () {
-            this.getOwnerModel("asas");
+//        	BaseController.prototype.onInit.call(this);
         }
 
     });

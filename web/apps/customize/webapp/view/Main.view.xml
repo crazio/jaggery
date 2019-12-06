@@ -1,13 +1,12 @@
-<mvc:View controllerName="customize.controller.Main"
-xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
-<Shell>
-    <App id="app">
-    	<pages>
-    		<Page showHeader="false">
-    			<content>
-                </content>
-            </Page>
-        </pages>
-    </App>
-</Shell>
+<mvc:View controllerName="customize.controller.Main" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+	<App id="app">
+		<pages>
+			<Page showHeader="false" showSubHeader="false">
+				<content>
+					<mvc:XMLView viewName="customize.view.Header"/>
+				</content>
+			</Page>
+		</pages>
+	</App>
 </mvc:View>
