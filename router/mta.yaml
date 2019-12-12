@@ -36,7 +36,6 @@ modules:
     parameters:
       stack: cflinuxfs3
       memory: 128M
-      # buildpack: 'https://github.com/cloudfoundry/nodejs-buildpack/releases/download/v1.6.39/nodejs-buildpack-cflinuxfs3-v1.6.39.zip'
     requires:
       - name: jaggery-portal
       - name: jaggery-uaa

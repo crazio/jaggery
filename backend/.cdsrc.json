@@ -3,7 +3,7 @@
         "target": ".",
         "tasks": [
             {
-                "for": "node-cf",
+                "for": "java-cf",
                 "src": "srv",
                 "options": {
                     "model": [
@@ -23,15 +23,5 @@
                 }
             }
         ]
-    },
-    "requires": {
-        "[development]": {
-            "db": {
-                "kind": "sqlite",
-                "credentials": {
-                    "database": "db/jaggery.db"
-                }
-            }
-        }
     }
 }

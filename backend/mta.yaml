@@ -4,10 +4,14 @@ version: 1.0.0
 
 modules:
   - name: srv
-    type: nodejs
+    type: java
     path: srv
+    properties:
+      SPRING_PROFILES_ACTIVE: cloud
+    build-parameters:
+      build-result: target/*.jar
     parameters:
-      memory: 512M
+      memory: 1024M
       disk-quota: 1024M
     provides:
       - name: srv
@@ -24,6 +28,7 @@ modules:
   - name: blockchain
     type: nodejs
     path: blockchain
+    parameters:
       memory: 512M
       disk-quota: 512M
     provides:
