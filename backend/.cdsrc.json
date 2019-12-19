@@ -13,6 +13,16 @@
                 }
             },
             {
+                "for": "node-cf",
+                "src": "blockchain",
+                "options": {
+                    "model": [
+                        "blockchain",
+                        "db"
+                    ]
+                }
+            },
+            {
                 "for": "hana",
                 "src": "db",
                 "options": {

@@ -1,36 +1,37 @@
 {
-    "name": "jaggery",
-    "version": "1.0.0",
-    "description": "Blockchain Digital Market",
-    "license": "ISC",
-    "repository": "<Add your repository here>",
-    "scripts": {
-        "build": "cds build/all --clean",
-        "deploy-local": "cds deploy --to sqlite:srv/local.db --no-save",
-        "start-server": "mvn spring-boot:run -Dspring-boot.run.jvmArguments=\"-Dspring.profiles.active=local\"",
-        "local": "npm run clean && npm run build && npm run deploy-local && npm run start-server",
-        "clean": "mvn clean",
-        "build-cloud": "mvn clean && npm run build && mvn install",
-        "deploy": "cds deploy"
-    },
-    "dependencies": {
-        "@sap/cds": "^3.0.0"
-    },
-    "cds": {
-        "build": {
-            "target": "."
-        },
-        "requires": {
-            "db": {
-                "kind": "hana",
-                "model": [
-                    "db",
-                    "srv"
-                ]
-            }
-        },
-        "odata": {
-            "version": "v4"
-        }
-    }
+	"name": "jaggery",
+	"version": "1.0.0",
+	"description": "Blockchain Digital Market",
+	"license": "ISC",
+	"repository": "<Add your repository here>",
+	"scripts": {
+		"build": "cds build/all --clean",
+		"deploy-local": "cds deploy --to sqlite:srv/local.db --no-save",
+		"start-server": "mvn spring-boot:run",
+		"local": "npm run clean && npm run build && npm run deploy-local && npm run start-server",
+		"clean": "mvn clean",
+		"build-cloud": "mvn clean && npm run build && mvn install",
+		"deploy": "cds deploy"
+	},
+	"dependencies": {
+		"@sap/cds": "^3.20.1"
+	},
+	"cds": {
+		"build": {
+			"target": "."
+		},
+		"requires": {
+			"db": {
+				"kind": "hana",
+				"model": [
+					"db",
+					"srv",
+					"blockchain"
+				]
+			}
+		},
+		"odata": {
+			"version": "v4"
+		}
+	}
 }
