@@ -9,6 +9,7 @@ gen/
 edmx/
 schema.sql
 *.db
+default-env.json
 
 bin/
 target/

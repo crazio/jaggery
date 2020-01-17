@@ -1,0 +1,142 @@
+_schema-version: 2.0.0
+ID: jaggery
+version: 1.0.0
+
+parameters:
+  deploy_mode: html5-repo
+  enable-parallel-deployments: true
+
+modules:
+
+  - name: router
+    deployed-after:
+      - flp
+    type: approuter.nodejs
+    path: approuter
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+    requires:
+      - name: jaggery-router
+      - name: jaggery-uaa
+      - name: jaggery-portal
+      - name: srv
+        group: destinations
+        properties:
+          name: srv
+          url: '~{url}'
+          forwardAuthToken: true
+
+  - name: flp
+    deployed-after:
+      - deployer
+    type: com.sap.portal.content
+    path: flp
+    parameters:
+      stack: cflinuxfs3
+      memory: 128M
+    requires:
+      - name: jaggery-portal
+      - name: jaggery-uaa
+      - name: jaggery-deployer
+
+  - name: deployer
+    type: com.sap.html5.application-content
+    path: deployer
+    parameters:
+      memory: 512M
+    build-parameters:
+      requires: 
+        - name: customize
+          artifacts: 
+            - "./*"
+          target-path: resources/customize
+        - name: tokensale
+          artifacts:
+            - "./*"
+          target-path: resources/tokensale
+    requires:
+      - name: jaggery-deployer
+
+  - name: customize
+    path: app/customize
+    build-parameters:
+      supported-platforms: []
+      build-result: dist
+      builder: grunt
+
+  - name: tokensale
+    path: app/tokensale
+    build-parameters:
+      supported-platforms: []
+      build-result: dist
+      builder: grunt
+
+  - name: db
+    type: hdb
+    path: db
+    parameters:
+      memory: 256M
+      disk-quota: 512M
+    requires:
+      - name: jaggery-hdi
+    provides:
+      - name: db
+
+  - name: srv
+    deployed-after:
+      - db
+    type: java
+    path: srv
+    properties:
+      SPRING_PROFILES_ACTIVE: cloud
+      db_service_instance_name: jaggery-hdi
+    build-parameters:
+      build-result: target/*.jar
+    parameters:
+      memory: 1024M
+      disk-quota: 1024M
+    provides:
+      - name: srv
+        properties:
+          url: ${default-url}
+    requires:
+      - name: jaggery-hdi
+      - name: jaggery-uaa
+
+resources:
+
+  - name: jaggery-deployer
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+      config: { sizeLimit: 1 }
+
+  - name: jaggery-router
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+        
+  - name: jaggery-hdi
+    type: com.sap.xs.hdi-container
+    parameters:
+      service-plan: hdi-shared
+      service: hanatrial
+      config: { schema: JAGGERY_SCP }
+    properties:
+      hdi-container-name: ${service-name}
+
+  - name: jaggery-uaa
+    type: org.cloudfoundry.managed-service
+    parameters:
+      path: ./xs-security.json
+      service-plan: application
+      service: xsuaa
+
+  - name: jaggery-portal
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: standard
+      service: portal

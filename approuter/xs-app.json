@@ -1,0 +1,24 @@
+{
+  "welcomeFile": "/cp.portal",
+  "authenticationMethod": "none",
+  "routes": [
+    { 
+      "source": "^(/applications/.*)$", 
+      "target": "$1", 
+      "service": "html5-apps-repo-rt", 
+      "authenticationType": "xsuaa" 
+    }, 
+    {
+      "source": "/api/(.*)",
+      "target": "$1",
+      "destination": "srv",
+      "authenticationType": "xsuaa"
+    },
+    {
+      "source": "^/(.*)$",
+      "target": "$1",
+      "service": "html5-apps-repo-rt",
+      "authenticationType": "xsuaa"
+    }
+  ]
+}

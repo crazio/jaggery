@@ -1,0 +1,36 @@
+<mvc:View controllerName="tokensale.controller.Main" xmlns:tnt="sap.tnt"
+	xmlns:f="sap.f" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+	<App id="app">
+		<pages>
+			<tnt:ToolPage>
+				<tnt:header>
+					<tnt:ToolHeader>
+						<Image
+							src="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg"
+							width="4.2em" height="2.2em" />
+						<Title text="{i18n>appTitle}" level="H1" />
+						<ToolbarSpacer />
+						<Title text="{i18n>testName} {i18n>testSurname}" level="H3" />
+						<f:Avatar displaySize="XS" initials="UM" showBorder="true">
+							<f:detailBox>
+								<LightBox>
+									<imageContent>
+										<LightBoxItem
+											imageSrc="https://www.sap.com/dam/application/shared/logos/sap-logo-svg.svg"
+											title="{i18n>boxName} {i18n>testName}" subtitle="{i18n>boxSurname} {i18n>testSurname}">
+										</LightBoxItem>
+									</imageContent>
+								</LightBox>
+							</f:detailBox>
+						</f:Avatar>
+					</tnt:ToolHeader>
+				</tnt:header>
+				<tnt:mainContents>
+					<NavContainer>
+						
+					</NavContainer>
+				</tnt:mainContents>
+			</tnt:ToolPage>
+		</pages>
+	</App>
+</mvc:View>

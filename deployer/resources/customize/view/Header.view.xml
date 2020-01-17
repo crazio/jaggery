@@ -1,0 +1,8 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:f="sap.f" xmlns="sap.m" controllerName="customize.controller.Header">
+	<Bar design="Header">
+		<contentLeft>
+			
+		</contentLeft>
+	</Bar>
+</core:View>

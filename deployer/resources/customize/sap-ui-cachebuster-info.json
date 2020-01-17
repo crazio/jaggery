@@ -1,0 +1,18 @@
+{
+  "Component-dbg.js": 1579258048570,
+  "Component-preload.js": 1579258048593,
+  "Component.js": 1575469916367,
+  "controller/BaseController-dbg.js": 1579258048571,
+  "controller/BaseController.js": 1575539329868,
+  "controller/Header-dbg.controller.js": 1579258048572,
+  "controller/Header.controller.js": 1575539524685,
+  "controller/Main-dbg.controller.js": 1579258048573,
+  "controller/Main.controller.js": 1575538670377,
+  "i18n/i18n.properties": 1575549839889,
+  "index.html": 1575472055039,
+  "manifest-bundle.zip": 1579258048649,
+  "manifest.json": 1579258048474,
+  "view/Header.view.xml": 1575636870622,
+  "view/Main.view.xml": 1575637738588,
+  "xs-app.json": 1579257922532
+}

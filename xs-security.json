@@ -1,0 +1,54 @@
+{
+  "xsappname": "jaggery",
+  "tenant-mode": "dedicated",
+  "description": "Security profile of called application",
+  "scopes": [
+    {
+      "name": "$XSAPPNAME.customize",
+      "description": "General customizing actions"
+    },
+    {
+      "name": "$XSAPPNAME.teach",
+      "description": "Teaching activities"
+    },
+    {
+      "name": "$XSAPPNAME.manage",
+      "description": "Basic activities"
+    }
+  ],
+  "role-templates": [
+    {
+      "name": "Manager",
+      "description": "Configure settings and business flow",
+      "scope-references": [
+        "uaa.user",
+        "$XSAPPNAME.customize",
+        "$XSAPPNAME.manage"
+      ]
+    },
+    {
+      "name": "Lector",
+      "description": "Configure settings and business flow",
+      "scope-references": [
+        "uaa.user",
+        "$XSAPPNAME.teach"
+      ]
+    }
+  ],
+  "role-collections": [
+    {
+      "name": "Manager",
+      "description": "Settings and customizing",
+      "role-template-references": [
+        "$XSAPPNAME.Manager"
+      ]
+    },
+    {
+      "name": "Lector",
+      "description": "Teaching activities",
+      "role-template-references": [
+        "$XSAPPNAME.Lector"
+      ]
+    }
+  ]
+}
