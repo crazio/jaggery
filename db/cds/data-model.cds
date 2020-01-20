@@ -42,20 +42,10 @@ entity Students : cuid {
   groups : Association to many Groups2Students on groups.student = $self;
 }
 
-entity Groups2Students {
-  key studentGroup : Association to Groups;
-  key student : Association to Students;
-}
-
 entity Groups : cuid {
   students : Association to many Groups2Students on students.studentGroup = $self;
   series : Association to Series;
   timetable : Association to one Timetables;
-}
-
-entity Series2Lectors {
-  key series : Association to Series;
-  key lector : Association to Lectors;
 }
 
 entity Series : cuid {
@@ -76,4 +66,14 @@ entity Studies {
   date : Date;
   startTime : Time;
   endTime : Time;
+}
+
+entity Groups2Students {
+  key studentGroup : Association to Groups;
+  key student : Association to Students;
+}
+
+entity Series2Lectors {
+  key series : Association to Series;
+  key lector : Association to Lectors;
 }

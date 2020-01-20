@@ -8,6 +8,26 @@
 		"description": "{{appDescription}}",
 		"applicationVersion": {
 			"version": "1.0.0"
+		},
+		"crossNavigation": {
+			"inbounds": {
+				"configApplicationDisplay": {
+					"semanticObject": "Jaggery",
+					"action": "Tokensale",
+					"deviceTypes": {
+						"desktop": true,
+						"tablet": true,
+						"phone": true
+					},
+					"icon": "sap-icon://collections-insight",
+					"signature": {
+						"parameters": {},
+						"additionalParameters": "allowed"
+					},
+					"title": "{{appTitle}}"
+				}
+			},
+			"outbounds": {}
 		}
 	},
 	"sap.ui": {
@@ -28,9 +48,7 @@
 		"dependencies": {
 			"minUI5Version": "1.60",
 			"libs": {
-				"sap.m": {
-					
-				}
+				"sap.m": {}
 			}
 		},
 		"models": {
