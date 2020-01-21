@@ -1,0 +1,66 @@
+<mvc:View controllerName="manage.controller.Main" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+	<App id="app">
+		<pages>
+			<Page showHeader="false" showSubHeader="false">
+				<content>
+					<l:BlockLayout id="BlockLayout" background="Default">
+						<l:BlockLayoutRow>
+							<l:BlockLayoutCell
+								backgroundColorSet="ColorSet11" backgroundColorShade="ShadeD">
+								<l:VerticalLayout>
+									<core:Icon src="sap-icon://account" size="2.5rem"
+										color="Default" />
+									<Title text="{i18n>personsTitle}" level="H3"
+										titleStyle="H2" class="sapUiTinyMarginTopBottom" />
+									<Text text="{i18n>personsDesc}"
+										class="sapUiTinyMarginBottom" />
+									<Link text="{i18n>accessTool}" press="onLinkPress" />
+								</l:VerticalLayout>
+							</l:BlockLayoutCell>
+							<l:BlockLayoutCell
+								backgroundColorSet="ColorSet11" backgroundColorShade="ShadeB">
+								<l:VerticalLayout>
+									<core:Icon src="sap-icon://learning-assistant"
+										size="2.5rem" color="Default" />
+									<Title text="{i18n>lectorsTitle}" level="H3"
+										titleStyle="H2" class="sapUiTinyMarginTopBottom" />
+									<Text text="{i18n>lectorsDesc}"
+										class="sapUiTinyMarginBottom" />
+									<Link text="{i18n>accessTool}" press="onLinkPress" />
+								</l:VerticalLayout>
+							</l:BlockLayoutCell>
+							<l:BlockLayoutCell
+								backgroundColorSet="ColorSet11" backgroundColorShade="ShadeD">
+								<l:VerticalLayout>
+									<core:Icon src="sap-icon://study-leave" size="2.5rem"
+										color="Default" />
+									<Title text="{i18n>studentsTitle}" level="H3"
+										titleStyle="H2" class="sapUiTinyMarginTopBottom" />
+									<Text text="{i18n>studentsDesc}"
+										class="sapUiTinyMarginBottom" />
+									<Link text="{i18n>accessTool}" press="onLinkPress" />
+								</l:VerticalLayout>
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+						<l:BlockLayoutRow>
+							<l:BlockLayoutCell
+								backgroundColorSet="ColorSet11" backgroundColorShade="ShadeA">
+								<l:VerticalLayout>
+									<core:Icon src="sap-icon://step" size="2.5rem"
+										color="Default" />
+									<Title text="{i18n>seriesTitle}" level="H3"
+										titleStyle="H2" class="sapUiTinyMarginTopBottom" />
+									<Text text="{i18n>seriesDesc}"
+										class="sapUiTinyMarginBottom" />
+									<Link text="{i18n>accessTool}" press="onLinkPress" />
+								</l:VerticalLayout>
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+					</l:BlockLayout>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
