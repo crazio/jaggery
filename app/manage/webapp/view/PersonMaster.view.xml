@@ -1,0 +1,31 @@
+<mvc:View controllerName="manage.controller.PersonMaster" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+    <pages>
+		<Page showHeader="true" showSubHeader="false" showFooter="false" showNavButton="true">
+            <content>
+                <List width="auto" class="sapFDynamicPageAlignContent" 
+                      items="Jaggery>/Persons" growing="true"
+					  growingScrollToLoad="true"
+                      mode="SingleSelectMaster">
+					<headerToolbar>
+						<OverflowToolbar>
+							<SearchField showRefreshButton="true" width="100%" search="onPersonSearch">
+								<layoutData>
+									<OverflowToolbarLayoutData minWidth="150px" maxWidth="240px" shrinkable="true" priority="NeverOverflow"/>
+								</layoutData>
+							</SearchField>
+						</OverflowToolbar>
+					</headerToolbar>
+					<items>
+						<ObjectListItem press="onPersonSelect" title="{Jaggery>firstName} {Jaggery>lastName}" type="Navigation">
+							<attributes>
+								<ObjectAttribute text="{Jaggery>firstName} {Jaggery>lastName}" title="Owner"/>
+							</attributes>
+						</ObjectListItem>
+					</items>
+				</List>
+            </content>
+        </Page>
+    </pages>
+</mvc:View>

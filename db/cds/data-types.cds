@@ -1,6 +1,6 @@
 namespace com.leverx.jaggery;
 
-type CourseType : String enum {
-  int;
-  ext;
+type Gender : String enum {
+  male;
+  female;
 }

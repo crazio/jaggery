@@ -14,7 +14,7 @@ entity Courses : cuid {
 }
 
 entity Lections : cuid {
-  number : String not null; //1a, 1.1 and so on
+  number : String(3) not null; //1a, 1.1 and so on
   name : String not null;
   description : String;	
   course : Association to Courses;
@@ -30,6 +30,11 @@ entity Persons : cuid {
   lastName : String not null;
   firstName : String not null;
   middleName : String not null;
+  gender : types.Gender not null;
+  email : String not null;
+  extraEmail : String;
+  phone : String;
+  extraPhone : String;
 }
 
 entity Lectors : cuid {

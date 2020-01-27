@@ -1,0 +1,11 @@
+<mvc:View controllerName="manage.controller.PersonDetail" xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:l="sap.ui.layout"
+	xmlns:core="sap.ui.core">
+    <pages>
+		<Page showHeader="true" showSubHeader="false" showFooter="false" title="{i18n>personDetails}">
+            <content>
+
+            </content>
+        </Page>
+    </pages>
+</mvc:View>
