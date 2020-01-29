@@ -10,7 +10,23 @@ sap.ui.define([
         },
     
         onLinkPress: function (oEvent) {
-        	
+            var sRoute;
+        	switch(this.getView().byId(oEvent.getSource().getId())) {
+                case "personLink":
+                    sRoute = "PersonSplit"
+                    break;
+                case "lectorLink":
+                    break;
+                case "studentLink":
+                    break;
+                case "seriesLink":
+                    break;
+                case "studyLink":
+                    break;
+                default:
+                    return;
+            }
+            BaseController.prototype.navTo(sRoute).call(this);
         }
 
     });

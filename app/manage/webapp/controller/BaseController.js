@@ -14,7 +14,7 @@ sap.ui.define([
             return this.getOwnerComponent().getRouter();
         },
 
-        navTo: function (sRoute, oParams, bHistory = true) {
+        navTo: function (sRoute, oParams = {}, bHistory = true) {
             this.getRouter().navTo(sRoute, oParams, bHistory);
         },
 

@@ -29,7 +29,7 @@
 										titleStyle="H2" class="sapUiTinyMarginTopBottom" />
 									<Text text="{i18n>personsDesc}"
 										class="sapUiTinyMarginBottom" />
-									<Link text="{i18n>accessTool}" press="onLinkPress" />
+									<Link text="{i18n>accessTool}" press="onLinkPress" id="personLink"/>
 								</l:VerticalLayout>
 							</l:BlockLayoutCell>
 							<l:BlockLayoutCell
@@ -41,7 +41,7 @@
 										titleStyle="H2" class="sapUiTinyMarginTopBottom" />
 									<Text text="{i18n>lectorsDesc}"
 										class="sapUiTinyMarginBottom" />
-									<Link text="{i18n>accessTool}" press="onLinkPress" />
+									<Link text="{i18n>accessTool}" press="onLinkPress" id="lectorLink"/>
 								</l:VerticalLayout>
 							</l:BlockLayoutCell>
 							<l:BlockLayoutCell
@@ -53,7 +53,7 @@
 										titleStyle="H2" class="sapUiTinyMarginTopBottom" />
 									<Text text="{i18n>studentsDesc}"
 										class="sapUiTinyMarginBottom" />
-									<Link text="{i18n>accessTool}" press="onLinkPress" />
+									<Link text="{i18n>accessTool}" press="onLinkPress" id="studentLink"/>
 								</l:VerticalLayout>
 							</l:BlockLayoutCell>
 						</l:BlockLayoutRow>
@@ -67,7 +67,7 @@
 										titleStyle="H2" class="sapUiTinyMarginTopBottom" />
 									<Text text="{i18n>seriesDesc}"
 										class="sapUiTinyMarginBottom" />
-									<Link text="{i18n>accessTool}" press="onLinkPress" />
+									<Link text="{i18n>accessTool}" press="onLinkPress" id="seriesLink"/>
 								</l:VerticalLayout>
 							</l:BlockLayoutCell>
 							<l:BlockLayoutCell
@@ -79,7 +79,7 @@
 										titleStyle="H2" class="sapUiTinyMarginTopBottom" />
 									<Text text="{i18n>studiesDesc}"
 										class="sapUiTinyMarginBottom" />
-									<Link text="{i18n>accessTool}" press="onLinkPress" />
+									<Link text="{i18n>accessTool}" press="onLinkPress" id="studyLink"/>
 								</l:VerticalLayout>
 							</l:BlockLayoutCell>
 						</l:BlockLayoutRow>

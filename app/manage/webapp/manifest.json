@@ -73,12 +73,48 @@
 					"pattern": "",
 					"name": "main",
 					"target": "main"
+				},
+				{
+					"name": "PersonMaster",
+					"pattern": "PersonMaster",
+					"target": ["PersonDetail", "PersonMaster"]
+				},
+				{
+					"name": "PersonDetail",
+					"pattern": "PersonDetail/{id}",
+					"target": ["PersonMaster", "PersonDetail"]
+				},
+				{
+					"name": "PersonSplit",
+					"pattern": "PersonSplit",
+					"target": ["PersonSplit", "PersonDetail", "PersonMaster"]
 				}
 			],
 			"targets": {
 				"main": {
 					"viewId": "main",
 					"viewName": "Main"
+				},
+				"PersonSplit": {
+					"viewType": "XML",
+					"viewLevel": 1,
+					"viewName": "PersonSplit"
+				},
+				"PersonMaster": {
+					"parent": "PersonSplit",
+					"viewType": "XML",
+					"viewLevel": 2,
+					"controlId": "personSplit",
+					"viewName": "PersonMaster",
+					"controlAggregation": "masterPages"
+				},
+				"PersonDetail": {
+					"parent": "PersonSplit",
+					"viewType": "XML",
+					"viewName": "PersonDetail",
+					"viewLevel": 3,
+					"controlId": "personSplit",
+					"controlAggregation": "detailPages"
 				}
 			}
 		}
